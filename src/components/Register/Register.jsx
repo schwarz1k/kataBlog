@@ -6,7 +6,7 @@ import { setUser } from '../../redux/slices/userSlice'
 import { useRegisterUserMutation } from '../../services/articlesApi.js'
 import FormWrapper from '../FormWrapper/FormWrapper.jsx'
 
-import styles from './Register.module.scss'
+import registerStyles from './Register.module.scss'
 
 const Register = () => {
   const dispatch = useDispatch()
@@ -108,27 +108,30 @@ const Register = () => {
   ]
 
   const main = (register, errors) => (
-    <label className={styles['register__checkbox']}>
+    <label className={registerStyles['register__checkbox']}>
       <input type="checkbox" {...register('agree', { required: 'You must agree to continue' })} />
       <span>I agree to the processing of my personal information</span>
-      {errors.agree && <span className={styles['register__error']}>{errors.agree.message}</span>}
+      {errors.agree && <span className={registerStyles['register__error']}>{errors.agree.message}</span>}
     </label>
   )
 
   const footer = (
     <p>
-      Already have an account? <Link to="/sign-in">Sign In</Link>
+      Already have an account?{' '}
+      <Link to="/sign-in" className={registerStyles['register__link']}>
+        Sign In
+      </Link>
     </p>
   )
 
   return (
     <>
       {showError ? (
-        <div className={styles['register__error']}>
+        <div className={registerStyles['register__error']}>
           <p>Ошибка отправки формы.</p>
           <p>Знаем о проблеме, исправим в ближайшее время.</p>
           <p>Повторите попытку позднее</p>
-          <button onClick={() => setShowError(false)} className={styles['register__retry-button']}>
+          <button onClick={() => setShowError(false)} className={registerStyles['register__retry-button']}>
             Вернуться на страницу регистрации
           </button>
         </div>

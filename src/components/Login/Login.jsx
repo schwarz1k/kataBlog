@@ -5,6 +5,8 @@ import FormWrapper from '../FormWrapper/FormWrapper.jsx'
 import { useLoginUserMutation } from '../../services/articlesApi.js'
 import { setUser } from '../../redux/slices/userSlice.js'
 
+import loginStyles from './Login.module.scss'
+
 const Login = () => {
   const dispatch = useDispatch()
   const [loginUser, { isLoading }] = useLoginUserMutation()
@@ -69,7 +71,10 @@ const Login = () => {
 
   const footer = (
     <p>
-      Don&apos;t have an account? <Link to="/sign-up">Sign Up</Link>
+      Don&apos;t have an account?{' '}
+      <Link to="/sign-up" className={loginStyles.login__link}>
+        Sign Up
+      </Link>
     </p>
   )
 

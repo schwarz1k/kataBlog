@@ -34,6 +34,13 @@
 
     a {
       text-decoration: none;
+
+      &:hover {
+        opacity: 0.8;
+      }
+      &:hover {
+        opacity: 0.6;
+      }
     }
 
     &-header {
@@ -234,6 +241,14 @@
       border-radius: 6px;
       text-align: center;
       cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:hover {
+        opacity: 0.6;
+      }
     }
   }
 
@@ -246,6 +261,14 @@
     padding: 0;
     color: gray;
     transition: color 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
 
     &--liked {
       color: #ff4d4f;

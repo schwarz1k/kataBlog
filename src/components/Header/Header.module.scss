@@ -14,11 +14,11 @@
     text-decoration: none;
 
     &:hover {
-      opacity: 0.8;
+      opacity: 0.6;
     }
 
     &:active {
-      opacity: 0.2;
+      opacity: 0.4;
     }
   }
 
@@ -37,6 +37,14 @@
     border-radius: 5px;
     background: transparent;
     text-decoration: none;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
   }
 
   &__button_logout {
@@ -48,6 +56,14 @@
     height: 51px;
     width: 109px;
     cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
   }
 
   &__button_login {
@@ -61,6 +77,15 @@
     text-decoration: none;
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:active {
+      opacity: 0.4;
+    }
   }
 
   &__button_register {
@@ -74,6 +99,14 @@
     align-items: center;
     color: black;
     text-decoration: none;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:active {
+      opacity: 0.4;
+    }
   }
 
   &__username {

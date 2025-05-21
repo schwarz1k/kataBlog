@@ -33,6 +33,15 @@
       border-radius: 8px;
       background: transparent;
       margin-bottom: 0;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        opacity: 0.6;
+      }
 
       &--add {
         margin-right: 8px;
