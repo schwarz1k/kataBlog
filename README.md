@@ -1,1 +1,1 @@
-pusto
+https://kata-blog-phi.vercel.app/
