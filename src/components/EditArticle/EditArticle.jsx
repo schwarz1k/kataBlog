@@ -115,7 +115,7 @@ const EditArticle = () => {
   return (
     <>
       {isLoading ? (
-        <p className={editArticlesStyles.loading}>Отправка статьи...</p>
+        <Loader />
       ) : showError ? (
         <div className={editArticlesStyles.error}>
           <p>Ошибка отправки формы.</p>
