@@ -1,0 +1,54 @@
+.register {
+  &__checkbox {
+    margin-top: 10px;
+    padding-top: 5px;
+
+    input {
+      margin-right: 5px;
+    }
+
+    span {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 157%;
+      color: #595959;
+      font-family: 'Roboto', sans-serif;
+    }
+  }
+
+  &__error {
+    background-color: white;
+    border-radius: 6px;
+    width: 384px;
+    padding: 20px;
+    margin: 59px auto 0 auto;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    line-height: 157%;
+    color: #f5222d;
+    box-shadow:
+            0 1px 3px 0 rgba(0, 0, 0, 0.02),
+            0 1px 7px 0 rgba(0, 0, 0, 0.03),
+            0 3px 13px 0 rgba(0, 0, 0, 0.04),
+            0 5px 24px 0 rgba(0, 0, 0, 0.04),
+            0 9px 44px 0 rgba(0, 0, 0, 0.05),
+            0 22px 106px 0 rgba(0, 0, 0, 0.07);
+  }
+
+  &__retry-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    background-color: #1890ff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: #1677cc;
+    }
+  }
+}

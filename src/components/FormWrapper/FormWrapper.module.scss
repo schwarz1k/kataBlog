@@ -1,0 +1,116 @@
+.form-wrapper {
+  display: flex;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    padding: 48px 32px;
+    width: 384px;
+    min-height: 374px;
+    background: #ffffff;
+    margin: 60px auto;
+    text-align: center;
+    box-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.02),
+            0 1px 7px rgba(0, 0, 0, 0.03),
+            0 3px 13px rgba(0, 0, 0, 0.04),
+            0 5px 24px rgba(0, 0, 0, 0.04),
+            0 9px 44px rgba(0, 0, 0, 0.05),
+            0 22px 106px rgba(0, 0, 0, 0.07);
+    border-radius: 6px;
+  }
+
+  &__title {
+    margin: 0 0 21px 0;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label-text {
+    text-align: left;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  &__input {
+    width: 100%;
+    min-height: 40px;
+    padding-left: 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+
+    &::placeholder {
+      color: #bfbfbf;
+    }
+
+    &--error {
+      border-color: #ff4d4f !important;
+    }
+  }
+
+  &__button {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    background-color: #1890ff;
+    color: white;
+    margin-top: 21px;
+    border-radius: 4px;
+    padding: 8px 16px;
+    min-height: 40px;
+    cursor: pointer;
+  }
+
+  &__footer {
+    font-size: 13px;
+    color: #bfbfbf;
+    font-family: 'Roboto', sans-serif;
+
+    a {
+      color: #1890ff;
+      text-decoration: none;
+    }
+  }
+
+  &__main {
+    text-align: left;
+  }
+
+  &__error {
+    margin-top: 6px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: #f5222d;
+    text-align: left;
+  }
+
+  &__custom {
+    margin-top: 10px;
+  }
+
+  &__textarea {
+    padding: 10px;
+    min-height: 168px;
+  }
+}
+
+.textarea {
+  padding: 10px;
+  min-height: 168px;
+}

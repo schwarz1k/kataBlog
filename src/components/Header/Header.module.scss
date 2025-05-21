@@ -1,0 +1,92 @@
+.header {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px;
+  min-height: 80px;
+
+  &__title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 156%;
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.2;
+    }
+  }
+
+  &__user {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+  }
+
+  &__button_create {
+    font-size: 14px;
+    line-height: 157%;
+    padding: 8px;
+    border: 1px solid #52c41a;
+    color: #52c41a !important;
+    border-radius: 5px;
+    background: transparent;
+    text-decoration: none;
+  }
+
+  &__button_logout {
+    font-size: 14px;
+    line-height: 157%;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    height: 51px;
+    width: 109px;
+    cursor: pointer;
+  }
+
+  &__button_login {
+    color: #000000;
+  }
+
+  &__button_login,
+  &__button_register {
+    font-size: 14px;
+    line-height: 157%;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  &__button_register {
+    border: 1px solid #52c41a;
+    color: #52c41a;
+  }
+
+  &__profile {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+  }
+
+  &__username {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 156%;
+    margin: 0;
+  }
+
+  &__avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}

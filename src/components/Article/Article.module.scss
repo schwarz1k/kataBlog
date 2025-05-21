@@ -1,0 +1,259 @@
+.article {
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 938px;
+    margin: 26px auto;
+    row-gap: 26px;
+    list-style: none;
+    padding: 0;
+
+    &-item {
+      padding: 15px 15px 24px;
+      background-color: white;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 682px 1fr;
+
+    &--open {
+      background-color: #f0f8ff;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      text-decoration: none;
+    }
+
+    &-header {
+      display: flex;
+      align-items: center;
+
+      p {
+        margin: 0 13px 0 0;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 140%;
+        color: #1890ff;
+      }
+
+      span {
+        margin-left: 5px;
+        font-size: 12px;
+        color: #000;
+      }
+    }
+
+    &-tags {
+      display: flex;
+      padding: 0;
+      list-style: none;
+      column-gap: 8px;
+
+      li {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 2px;
+        padding: 4px;
+
+        p {
+          color: rgba(0, 0, 0, 0.5);
+          font-weight: 400;
+          font-size: 12px;
+          margin: 0;
+        }
+      }
+    }
+
+    &-description {
+      margin-top: 10px;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.5);
+      overflow-wrap: anywhere;
+    }
+
+    &-body {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #000;
+      position: relative;
+
+      p {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 143%;
+      }
+    }
+  }
+
+  &__user {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    div {
+      text-align: right;
+    }
+
+    p {
+      margin: 0;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 156%;
+    }
+
+    img {
+      display: block;
+      margin-left: 10px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+    }
+
+    &-date {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 183%;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &__icon {
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+  }
+
+  &__page {
+    display: flex;
+
+    &-wrapper {
+      width: 938px;
+      background: #fff;
+      padding: 15px;
+      margin: 26px auto 0;
+    }
+
+    &-body {
+      color: rgba(0, 0, 0, 0.75);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 140%;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  &__loading {
+    font-size: 18px;
+    text-align: center;
+    padding: 40px 0;
+    color: #1890ff;
+    font-weight: 500;
+  }
+
+  &__error {
+    font-size: 16px;
+    color: #ff4d4f;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  &__empty {
+    font-size: 16px;
+    color: #1890ff;
+    text-align: center;
+    padding: 40px 0;
+    font-style: italic;
+  }
+
+  &__retry-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    background-color: #1890ff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: #1677cc;
+    }
+  }
+
+  &__pagination {
+    :global {
+      .ant-pagination-item-active a {
+        color: white !important;
+      }
+
+      .ant-pagination-options {
+        display: none;
+      }
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    right: -230px;
+    top: -40px;
+    display: flex;
+    column-gap: 10px;
+
+    &-edit {
+      text-decoration: none;
+      background-color: transparent;
+      width: 78px;
+      min-height: 31px;
+      align-content: center;
+      color: #52c41a;
+      border: 1px solid #52c41a;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    &-del {
+      text-decoration: none;
+      background-color: transparent;
+      width: 78px;
+      min-height: 31px;
+      align-content: center;
+      color: red;
+      border: 1px solid red;
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+
+  &__like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    color: gray;
+    transition: color 0.3s ease;
+
+    &--liked {
+      color: #ff4d4f;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+}
