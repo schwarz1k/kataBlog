@@ -44,7 +44,14 @@ const App = () => {
                 </PrivateRoute>
               }
             />
-            <Route path="articles/:slug/edit" element={<EditArticle />} />
+            <Route
+              path="articles/:slug/edit"
+              element={
+                <PrivateRoute>
+                  <EditArticle />
+                </PrivateRoute>
+              }
+            />
             <Route
               path="new-article"
               element={
