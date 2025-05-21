@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 import { articlesApi, useGetUserQuery, useUpdateUserMutation } from '../../services/articlesApi'
 import FormWrapper from '../FormWrapper/FormWrapper.jsx'
+import Loader from '../Loader/Loader.jsx'
 import { clearUser, setUser } from '../../redux/slices/userSlice.js'
 import registerStyles from '../Register/Register.module.scss'
 
@@ -22,9 +23,7 @@ const EditProfile = () => {
   }, [error, refetch])
 
   if (isLoading) {
-    return (
-      <p style={{ textAlign: 'center', padding: '2rem', color: '#1890ff', fontSize: '20px' }}>Загрузка профиля...</p>
-    )
+    return <Loader />
   }
 
   const user = data?.user

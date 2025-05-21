@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 
 import { useCreateArticleMutation, useGetArticleBySlugQuery } from '../../services/articlesApi'
 import FormWrapper from '../FormWrapper/FormWrapper.jsx'
+import Loader from '../Loader/Loader.jsx'
 import editArticlesStyles from '../EditArticle/EditArticle.module.scss'
 
 const EditArticle = () => {
@@ -99,7 +100,7 @@ const EditArticle = () => {
   }
 
   if (isArticleLoading) {
-    return <p className={editArticlesStyles.loading}>Загрузка статьи для редактирования...</p>
+    return <Loader />
   }
 
   if (articleError || !article) {

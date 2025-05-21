@@ -13,6 +13,7 @@ import {
   useUnfavoriteArticleMutation,
 } from '../../services/articlesApi'
 import { setPage } from '../../redux/slices/paginationSlice'
+import Loader from '../Loader/Loader.jsx'
 
 import styles from './Article.module.scss'
 
@@ -182,7 +183,7 @@ const Article = () => {
   }
 
   if (slug) {
-    if (articleLoading) return <p className={styles['article__loading']}>Загрузка статьи...</p>
+    if (articleLoading) return <Loader />
     if (articleError || !articleData?.article)
       return (
         <div className={styles['article__error']}>
@@ -199,7 +200,7 @@ const Article = () => {
     )
   }
 
-  if (articlesLoading || isFetching) return <p className={styles['article__loading']}>Загрузка...</p>
+  if (articlesLoading || isFetching) return <Loader />
   if (articlesError)
     return (
       <div className={styles['article__error']}>

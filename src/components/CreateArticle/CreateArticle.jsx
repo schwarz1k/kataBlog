@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 
 import { useCreateArticleMutation } from '../../services/articlesApi'
 import FormWrapper from '../FormWrapper/FormWrapper.jsx'
+import Loader from '../Loader/Loader.jsx'
 import commonStyles from '../Article/Article.module.scss'
 
 import styles from './CreateArticle.module.scss'
@@ -90,7 +91,7 @@ const CreateArticle = () => {
   return (
     <>
       {isLoading ? (
-        <p className={commonStyles['article__loading']}>Загрузка...</p>
+        <Loader />
       ) : showError ? (
         <div className={styles['create-article__error']}>
           <p>Ошибка отправки формы.</p>
