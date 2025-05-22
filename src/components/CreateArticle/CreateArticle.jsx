@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import { useCreateArticleMutation } from '../../services/articlesApi'
 import FormWrapper from '../FormWrapper/FormWrapper.jsx'
 import Loader from '../Loader/Loader.jsx'
-import commonStyles from '../Article/Article.module.scss'
 
 import styles from './CreateArticle.module.scss'
 
@@ -21,9 +20,17 @@ const CreateArticle = () => {
   }, [error])
 
   const handleAddTag = () => {
-    setTags((prev) => [...prev, ''])
-  }
+    if (tags.length === 0) {
+      setTags([''])
+      return
+    }
 
+    const lastTag = tags[tags.length - 1]
+
+    if (lastTag.trim() !== '') {
+      setTags((prev) => [...prev, ''])
+    }
+  }
   const handleDeleteTag = (indexToRemove) => {
     setTags((prev) => prev.filter((_, index) => index !== indexToRemove))
   }
@@ -143,7 +150,12 @@ const CreateArticle = () => {
                         <button
                           type="button"
                           onClick={handleAddTag}
-                          className={`${styles['create-article__tags-button']} ${styles['create-article__tags-button--add']}`}
+                          disabled={tag.trim() === ''}
+                          className={`
+                          ${styles['create-article__tags-button']} 
+                          ${styles['create-article__tags-button--add']} 
+                          ${tag.trim() === '' ? styles['create-article__tags-button--disabled'] : ''}
+                          `}
                         >
                           Add Tag
                         </button>
