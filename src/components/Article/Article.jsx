@@ -36,6 +36,7 @@ const Article = () => {
   const currentUser = useSelector((state) => state.user?.user)
   const pageSize = 5
   const offset = (pageFromUrl - 1) * pageSize
+  const [articleReady, setArticleReady] = useState(false)
 
   const [deleteArticle, { isLoading: isDeleting }] = useDeleteArticleMutation()
   const [favoriteArticle] = useFavoriteArticleMutation()
@@ -67,6 +68,14 @@ const Article = () => {
   })
 
   const [localArticles, setLocalArticles] = useState([])
+
+  useEffect(() => {
+    setArticleReady(false)
+
+    if (articleData?.article?.slug === slug) {
+      setArticleReady(true)
+    }
+  }, [slug, articleData])
 
   useEffect(() => {
     if (!slug) dispatch(setPage(pageFromUrl))
@@ -196,7 +205,8 @@ const Article = () => {
   }
 
   if (slug) {
-    if (articleLoading) return <Loader />
+    if (articleLoading || isArticleFetching || !articleReady) return <Loader />
+
     if (articleError || !articleData?.article)
       return (
         <div className={styles['article__error']}>
@@ -206,6 +216,7 @@ const Article = () => {
           </button>
         </div>
       )
+
     return (
       <div className={styles['article__page']}>
         <div className={styles['article__page-wrapper']}>{renderCard(articleData.article, 'full')}</div>
