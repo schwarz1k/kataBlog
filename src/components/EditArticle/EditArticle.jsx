@@ -57,7 +57,7 @@ const EditArticle = () => {
     })
 
     if (result?.data) {
-      navigate('/articles')
+      navigate(`/articles/${slug}`)
     }
   }
 
