@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
-import { useCreateArticleMutation, useGetArticleBySlugQuery } from '../../services/articlesApi'
+import { useUpdateArticleMutation, useGetArticleBySlugQuery } from '../../services/articlesApi'
 import FormWrapper from '../FormWrapper/FormWrapper.jsx'
 import Loader from '../Loader/Loader.jsx'
 import editArticlesStyles from '../EditArticle/EditArticle.module.scss'
@@ -14,7 +14,7 @@ const EditArticle = () => {
 
   const article = data?.article
 
-  const [updateArticle, { error, isLoading }] = useCreateArticleMutation()
+  const [updateArticle, { error, isLoading }] = useUpdateArticleMutation()
   const [tags, setTags] = useState([])
   const [showError, setShowError] = useState(false)
 
@@ -50,6 +50,7 @@ const EditArticle = () => {
     const filteredTags = tags.filter((tag) => tag.trim() !== '')
 
     const result = await updateArticle({
+      slug,
       title: data.title,
       description: data.shortDescription,
       body: data.text,
@@ -166,7 +167,12 @@ const EditArticle = () => {
                         <button
                           type="button"
                           onClick={handleAddTag}
-                          className={`${editArticlesStyles.tags__button} ${editArticlesStyles['tags__button--add']}`}
+                          disabled={tag.trim() === ''}
+                          className={`
+                          ${editArticlesStyles.tags__button}
+                          ${editArticlesStyles['tags__button--add']}
+                          ${tag.trim() === '' ? editArticlesStyles['tags__button--disabled'] : ''}
+                        `}
                         >
                           Add Tag
                         </button>

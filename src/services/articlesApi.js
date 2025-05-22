@@ -58,10 +58,10 @@ export const articlesApi = createApi({
       }),
     }),
     updateArticle: builder.mutation({
-      query: (slug) => ({
+      query: ({ slug, ...articleData }) => ({
         url: `articles/${slug}`,
         method: 'PUT',
-        body: { article: slug },
+        body: { article: articleData },
       }),
     }),
     deleteArticle: builder.mutation({
@@ -94,6 +94,7 @@ export const {
   useGetUserQuery,
   useUpdateUserMutation,
   useCreateArticleMutation,
+  useUpdateArticleMutation,
   useDeleteArticleMutation,
   useFavoriteArticleMutation,
   useUnfavoriteArticleMutation,

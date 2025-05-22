@@ -45,16 +45,26 @@ const Article = () => {
     data: articlesData,
     error: articlesError,
     isLoading: articlesLoading,
-    isFetching,
+    isFetching: isArticlesFetching,
     refetch: refetchArticles,
-  } = useGetArticlesQuery({ limit: pageSize, offset }, { skip: !!slug, refetchOnMountOrArgChange: true })
+  } = useGetArticlesQuery(
+    { limit: pageSize, offset },
+    {
+      skip: !!slug,
+      refetchOnMountOrArgChange: true,
+    }
+  )
 
   const {
     data: articleData,
     error: articleError,
     isLoading: articleLoading,
+    isFetching: isArticleFetching,
     refetch: refetchArticle,
-  } = useGetArticleBySlugQuery(slug, { skip: !slug })
+  } = useGetArticleBySlugQuery(slug, {
+    skip: !slug,
+    refetchOnMountOrArgChange: true,
+  })
 
   const [localArticles, setLocalArticles] = useState([])
 
@@ -112,22 +122,25 @@ const Article = () => {
             <Link to={`/articles/${slug}`} className={styles['article__link']}>
               <p>{title}</p>
             </Link>
-            <button
-              onClick={() => handleToggleFavorite(slug, favorited, mode)}
-              disabled={!currentUser}
-              className={
-                favorited
-                  ? `${styles['article__like-button']} ${styles['article__like-button--liked']}`
-                  : styles['article__like-button']
-              }
-            >
-              {favorited ? (
-                <AiFillHeart className={styles['article__icon']} />
-              ) : (
-                <AiOutlineHeart className={styles['article__icon']} />
-              )}
-            </button>
-            <span>{favoritesCount}</span>
+            {currentUser && (
+              <>
+                <button
+                  onClick={() => handleToggleFavorite(slug, favorited, mode)}
+                  className={
+                    favorited
+                      ? `${styles['article__like-button']} ${styles['article__like-button--liked']}`
+                      : styles['article__like-button']
+                  }
+                >
+                  {favorited ? (
+                    <AiFillHeart className={styles['article__icon']} />
+                  ) : (
+                    <AiOutlineHeart className={styles['article__icon']} />
+                  )}
+                </button>
+                <span>{favoritesCount}</span>
+              </>
+            )}
           </div>
 
           <ul className={styles['article__info-tags']}>
@@ -200,7 +213,8 @@ const Article = () => {
     )
   }
 
-  if (articlesLoading || isFetching) return <Loader />
+  if (articlesLoading || isArticlesFetching) return <Loader />
+  if (articlesLoading || isArticleFetching) return <Loader />
   if (articlesError)
     return (
       <div className={styles['article__error']}>

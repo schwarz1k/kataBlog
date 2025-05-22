@@ -53,8 +53,10 @@ const CreateArticle = () => {
       tagList: filteredTags,
     })
 
-    if (result?.data) {
-      navigate('/articles')
+    const article = result?.data?.article
+
+    if (article?.slug) {
+      navigate(`/articles/${article.slug}`)
     }
   }
 

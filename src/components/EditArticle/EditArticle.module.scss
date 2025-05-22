@@ -70,3 +70,11 @@
     }
   }
 }
+
+.tags__button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #999;
+  background-color: #f5f5f5;
+}

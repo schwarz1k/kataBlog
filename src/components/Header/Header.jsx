@@ -11,6 +11,7 @@ const Header = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user.user)
+  const currentPage = useSelector((state) => state.pagination.currentPage)
   const token = useSelector((state) => state.user.token)
   const wasLoggedOut = useSelector((state) => state.user.wasLoggedOut)
 
@@ -34,7 +35,7 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Link to="/" className={styles.header__title}>
+      <Link to={`/articles?page=${currentPage || 1}`} className={styles.header__title}>
         Realworld Blog
       </Link>
       <div className={styles.header__user}>
